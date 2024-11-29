@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="excs1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generate a<br><span> Random Password</span></h1>
+        <div class="display">
+            <input type="text" id="password" placeholder="Password">
+        </div>
+        <button onclick="createpw()">Generate Password</button>
+    </div>
+    <script>
+        const pb=document.getElementById("password");
+        const len=12;
+        const uc="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const lc="abcdefghijklmnopqrstuvwxyz";
+        const num="0123456789";
+        const symbol= "!@#$%^&*()_+-={}:<>?,./";
+        const allchar=uc+lc+symbol+num;
+        function createpw(){
+            let password="";
+            password+=uc[Math.floor(Math.random()*uc.length)];
+            password+=lc[Math.floor(Math.random()*lc.length)];
+            password+=num[Math.floor(Math.random()*num.length)];
+            password+=symbol[Math.floor(Math.random()*symbol.length)];
+            while(password.length<len){
+                password+=allchar[Math.floor(Math.random()*allchar.length)];
+            }
+            pb.value=password;
+        }
+    </script>
+</body>
+</html>
